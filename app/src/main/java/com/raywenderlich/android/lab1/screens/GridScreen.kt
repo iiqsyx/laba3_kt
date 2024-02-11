@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Check
@@ -45,7 +47,16 @@ private val items = listOf(
 
 @Composable
 fun GridScreen(){
-    GridView(columnCount = 3)
+    LazyVerticalGrid(
+        modifier = Modifier.fillMaxSize(),
+        columns = GridCells.Fixed(2),
+        content = {
+            items(count = items.size){ item ->
+               GridIcon(IconResource(items[item], true))
+            }
+        }
+    )
+
     BackButtonHandler {
         FundamentalsRouter.navigateTo(Screen.Navigation)
     }
@@ -81,6 +92,7 @@ fun GridView(columnCount: Int){
     }
 }
 
+
 @Composable
 fun  RowItem(rowItems: List<IconResource>){
     Row {
@@ -90,8 +102,18 @@ fun  RowItem(rowItems: List<IconResource>){
 }
 
 @Composable
-fun GridItem(rowItems: List<IconResource>){
+fun GridIcon(iconResource: IconResource){
+    val color = if (iconResource.isVisible)
+        colorResource(R.color.Azule)
+    else Color.Transparent
 
+    Icon(
+        imageVector = iconResource.imageVector,
+        tint = color,
+        contentDescription = stringResource(R.string.grid_icon),
+        modifier = Modifier
+            .size(80.dp, 80.dp)
+    )
 }
 
 @Composable
