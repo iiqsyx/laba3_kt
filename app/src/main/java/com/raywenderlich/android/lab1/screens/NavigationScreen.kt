@@ -28,13 +28,9 @@ fun NavigationScreen() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            NavigationButton(stringResource(id = R.string.row_container), Screen.Row)
-            NavigationButton(stringResource(id = R.string.column_container), Screen.Column)
-            NavigationButton(stringResource(id = R.string.box_container), Screen.Box)
-            NavigationButton(stringResource(id = R.string.surface_container), Screen.Surface)
-            NavigationButton(stringResource(id = R.string.scaffold_container), Screen.Scaffold)
             NavigationButton(stringResource(id = R.string.scrolling_screen), Screen.Scrolling)
             NavigationButton(stringResource(id = R.string.list), Screen.List)
+            NavigationButton(stringResource(id = R.string.grid_icon), Screen.Grid)
         }
     }
 }

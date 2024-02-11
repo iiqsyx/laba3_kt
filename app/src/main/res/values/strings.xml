@@ -31,7 +31,8 @@
     <string name="kot">Изучение Kotlin</string>
     <string name="corutine">Корутины в Kotlin</string>
     <string name="cover">Обложки книг</string>
-    <string name="list">Список</string>
+    <string name="list">список</string>
+    <string name="grid_icon">иконка</string>
 
 
 </resources>
